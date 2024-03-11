@@ -29,3 +29,4 @@ class Fixed
 std::ostream& operator<<(std::ostream& os, const Fixed& object);
 
 # endif
+
