@@ -2,20 +2,21 @@
 
 int main ( void )
 {
-	ClapTrap a("adc");
+	ClapTrap a = ClapTrap("arma");
+    ClapTrap b = ClapTrap("bomba");
+    ClapTrap aCpy = ClapTrap(a);
 
-    a.attack("full mr voli");
-	a.attack("frozen heart bard");
-	a.attack("frozen heart bard");
-	a.attack("frozen heart bard");
-	a.attack("frozen heart bard");
-	a.attack("frozen heart bard");
-	a.attack("frozen heart bard");
+    for (int i = 0; i < 9; i++)
+	{
+        a.attack("bomba");
+		//b.takeDamage(0);
+    }
+    b.takeDamage(1);
 	a.takeDamage(2);
-	a.beRepaired(0);
+    b.beRepaired(0);
+    b.beRepaired(1);
+	b.beRepaired(1);
+    a.beRepaired(1);
 	a.beRepaired(1);
-	a.takeDamage(10);
-	a.beRepaired(11);
-	a.attack("frozen heart bard");
-	a.attack("frozen heart bard");
+	
 }

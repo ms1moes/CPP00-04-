@@ -34,7 +34,7 @@ void ClapTrap::attack(const std::string& target)
 {
     if (this->energyPoints == 0)
     {
-        std::cout << "ClapTrap " << this->name << " is out of energy !!!" << std::endl;
+        std::cout << "ClapTrap " << this->name << " is out of energy, failed to atack !!!" << std::endl;
         return ;
     }
     std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage !!!" << std::endl;
@@ -48,30 +48,25 @@ void ClapTrap::takeDamage(unsigned int amount)
         std::cout << "ClapTrap " << this->name << " is already dead !!!" << std::endl;
         return ;
     }
-    if (amount <= 0)
-    {
-        std::cout << "ClapTrap " << this->name << " can only take damage with positive numbers !!!" << std::endl;
-        return ;
-    }
     std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage !!!" << std::endl;
     this->hitPoints -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->energyPoints <= 0)
+    if (this->energyPoints == 0)
     {
         std::cout << "ClapTrap " << this->name << " is out of energy !!!" << std::endl;
         return ;
     }
-    if (amount <= 0)
+    if (amount == 0)
     {
-        std::cout << "ClapTrap " << this->name << " can only be repaired with positive numbers !!!" << std::endl;
+        std::cout << "ClapTrap " << this->name << " cant be healed by that amount of HP !!!" << std::endl;
         return ;
     }
     if (this->hitPoints == 10)
     {
-        std::cout << "ClapTrap " << this->name << " is already full HP !!!" << std::endl;
+        std::cout << "ClapTrap " << this->name << " is already full HP so it can't be repaired!!!" << std::endl;
         return ;
     }
     std::cout << "ClapTrap " << this->name << " is being repaired for " << amount << " HP !!!" << std::endl;
