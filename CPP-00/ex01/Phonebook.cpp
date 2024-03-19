@@ -7,7 +7,7 @@ Phonebook::Phonebook(void)
 
 Phonebook::~Phonebook(void)
 {
-    cout << "Phonebook destroyed" << endl;
+    std::cout << "Phonebook destroyed" << std::endl;
 }
 
 Contact Phonebook::get_contact(int index)
@@ -17,62 +17,62 @@ Contact Phonebook::get_contact(int index)
 
 void Phonebook::add(void)
 {
-    string str = "";
+    std::string str = "";
 
     system("clear");
-    while(!cin.eof() && str == "")
+    while(!std::cin.eof() && str == "")
     {
-        cout << "Enter first name: ";
-        if(getline(cin, str) && str != "")
+        std::cout << "Enter first name: ";
+        if(getline(std::cin, str) && str != "")
             this->contacts[this->index % 8].set_first_name(str);
     }
     str = "";
-    while(!cin.eof() && str == "")
+    while(!std::cin.eof() && str == "")
     {
-        cout << "Enter last name: ";
-        if(getline(cin, str) && str != "")
+        std::cout << "Enter last name: ";
+        if(getline(std::cin, str) && str != "")
             this->contacts[this->index % 8].set_last_name(str);
     }
     str = "";
-    while(!cin.eof() && str == "")
+    while(!std::cin.eof() && str == "")
     {
-        cout << "Enter nickname: ";
-        if(getline(cin, str) && str != "")
+        std::cout << "Enter nickname: ";
+        if(getline(std::cin, str) && str != "")
             this->contacts[this->index % 8].set_nickname(str);
     }
     str = "";
-    while(!cin.eof() && str == "")
+    while(!std::cin.eof() && str == "")
     {
-        cout << "Enter phone number: ";
-        if(getline(cin, str) && str != "")
+        std::cout << "Enter phone number: ";
+        if(getline(std::cin, str) && str != "")
             this->contacts[this->index % 8].set_phone_number(str);
     }
     str = "";
-    while(!cin.eof() && str == "")
+    while(!std::cin.eof() && str == "")
     {
-        cout << "Enter darkest secret: ";
-        if(getline(cin, str) && str != "")
+        std::cout << "Enter darkest secret: ";
+        if(getline(std::cin, str) && str != "")
         {
             this->contacts[this->index % 8].set_darkest_secret(str);
             system("clear");
-            cout << "Contact successfully added" << endl;
+            std::cout << "Contact successfully added" << std::endl;
         }
     }
     this->index++;
     if (this->index > 7)
-    cout << "Phonebook is full, your next contact will overwrite information from the oldest one!" << endl;
+        std::cout << "Phonebook is full, your next contact will overwrite information from the oldest one!" << std::endl;
 }  
 
 void Phonebook::print(Contact contact)
 {
-    cout << "First name: " << contact.get_first_name() << endl;
-    cout << "Last name: " << contact.get_last_name() << endl;
-    cout << "Nickname: " << contact.get_nickname() << endl;
-    cout << "Phone number: " << contact.get_phone_number() << endl;
-    cout << "Darkest secret: " << contact.get_darkest_secret() << endl;
+    std::cout << "First name: " << contact.get_first_name() << std::endl;
+    std::cout << "Last name: " << contact.get_last_name() << std::endl;
+    std::cout << "Nickname: " << contact.get_nickname() << std::endl;
+    std::cout << "Phone number: " << contact.get_phone_number() << std::endl;
+    std::cout << "Darkest secret: " << contact.get_darkest_secret() << std::endl;
 }
 
-string	adjust_width(string str, unsigned long max_size)
+std::string	adjust_width(std::string str, unsigned long max_size)
 {
 	if (str.size() < max_size)
         return (str);
@@ -86,11 +86,11 @@ int display_interface(Contact contacts[8])
     int     num;
     int     i;
     char    index;
-    string  str;
+    std::string  str;
 
-    cout << " ___________________________________________ " << endl;
-    cout << "|     Index|First Name| Last Name|  Nickname|" << endl;
-    cout << "|----------|----------|----------|----------|" << endl;
+    std::cout << " ___________________________________________ " << std::endl;
+    std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+    std::cout << "|----------|----------|----------|----------|" << std::endl;
 
     num = 0;
     i = -1;
@@ -100,41 +100,41 @@ int display_interface(Contact contacts[8])
         if (!contacts[i].get_first_name().empty())
         {
             str = index;
-            cout << "|" << setw(10) << str;
+            std::cout << "|" << std::setw(10) << str;
             str = adjust_width(contacts[i].get_first_name(), 10);
-            cout << "|" << setw(10) << str;
+            std::cout << "|" << std::setw(10) << str;
             str = adjust_width(contacts[i].get_last_name(), 10);
-            cout << "|" << setw(10) << str;
+            std::cout << "|" << std::setw(10) << str;
             str = adjust_width(contacts[i].get_nickname(), 10);
-            cout << "|" << setw(10) << str;
-            cout << "|" << endl;
+            std::cout << "|" << std::setw(10) << str;
+            std::cout << "|" << std::endl;
             num++;
         }
     }
-    cout << "--------------------------------------------- " << endl;
+    std::cout << "--------------------------------------------- " << std::endl;
     return num;
 }
 
 void	Phonebook::search(void)
 {
-	string	str;
+	std::string	str;
 
     system("clear");
 	if (!display_interface(this->contacts))
 	{
-		cout << endl << "Phonebook is empty!" << endl;
+		std::cout << std::endl << "Phonebook is empty!" << std::endl;
 		return ;
 	}
-	while (!cin.eof())
+	while (!std::cin.eof())
 	{
-		cout << "Select an index: ";
-		if (getline(cin, str) && str != "")
+		std::cout << "Select an index: ";
+		if (getline(std::cin, str) && str != "")
 			if (str.size() == 1 && str[0] >= '1' && str[0] <= '8' &&
             this->contacts[str[0] - 1 - '0'].get_first_name() != "")
 				break ;
 		if (str != "")
-			cout << "Invalid index!" << endl;
+			std::cout << "Invalid index!" << std::endl;
 	}
-	if (!cin.eof())
+	if (!std::cin.eof())
 		this->print(this->contacts[str[0] - 1 - '0']);
 }   

@@ -3,21 +3,21 @@
 int main(void)
 {
     Phonebook   phonebook;
-    string      command;
+    std::string command;
 
     system("clear");
-    while (1)
+    while (command != "EXIT")
     {
-        cout << "Choose a command! (ADD, SEARCH or EXIT): ";
-        getline(cin, command);
+        std::cout << "Choose a command! (ADD, SEARCH or EXIT): ";
+        getline(std::cin, command);
         if (command == "ADD")
             phonebook.add();
         else if (command == "SEARCH")
             phonebook.search();
-        else if (command == "EXIT")
-            break;
-        else
-            cout << "Invalid command" << endl;
-        cin.clear();
+        if(std::cin.eof())
+        {
+            std::cout << "Invalid command!" << std::endl;
+            return (0);
+        }
     }
 }
