@@ -1,22 +1,18 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main ( void )
 {
-	ClapTrap a = ClapTrap("arma");
-    ClapTrap b = ClapTrap("bomba");
-    ClapTrap aCpy = ClapTrap(a);
+    ScavTrap scavtrap1("broken trap");
+    ScavTrap scavtrap2("good trap");
+    ScavTrap scavtrap3;
 
-    for (int i = 0; i < 9; i++)
-	{
-        a.attack("bomba");
-		//b.takeDamage(0);
-    }
-    b.takeDamage(1);
-	a.takeDamage(2);
-    b.beRepaired(0);
-    b.beRepaired(1);
-	b.beRepaired(1);
-    a.beRepaired(1);
-	a.beRepaired(1);
+    scavtrap1 = scavtrap3;
+
+    scavtrap1.attack("dummy_trap");
+    scavtrap1.guardGate();
+    scavtrap2.takeDamage(10);
+    scavtrap1.beRepaired(10);
+    scavtrap2.beRepaired(10);
+    scavtrap2.attack("dummy_trap");
 	
 }

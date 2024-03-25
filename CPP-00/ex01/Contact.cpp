@@ -57,3 +57,4 @@ std::string Contact::get_darkest_secret(void)
 {
     return this->darkest_secret;
 }
+

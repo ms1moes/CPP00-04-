@@ -137,4 +137,5 @@ void	Phonebook::search(void)
 	}
 	if (!std::cin.eof())
 		this->print(this->contacts[str[0] - 1 - '0']);
-}   
+}
+
