@@ -8,7 +8,7 @@ int main( void )
 	string &ref = str;
 
 	cout << "Memory Adress string:    " << &str << endl;
-	cout << "Memory Adress pointer:   " << ptr << endl;
+	cout << "Memory Adress pointer:   " << &ptr << endl;
 	cout << "Memory Adress reference: " << &ref << endl;
 
     cout << "Value of string:         " << str << endl;      

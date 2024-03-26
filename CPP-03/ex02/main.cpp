@@ -14,5 +14,4 @@ int main ( void )
     fragtrap1.beRepaired(10);
     fragtrap2.beRepaired(10);
     fragtrap2.attack("dummy_trap");
-	
 }
