@@ -1,9 +1,9 @@
 NAME = poly
 
 SRC = main.cpp \
-	ClapTrap.cpp \
-	ScavTrap.cpp  \
-	FragTrap.cpp
+	Animal.cpp \
+	Dog.cpp  \
+	Cat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
