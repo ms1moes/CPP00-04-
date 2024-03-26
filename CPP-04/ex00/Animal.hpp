@@ -7,13 +7,15 @@
 class Animal
 {
     protected:
-        std::string type = "Animal";
+        std::string type;
     public:
         Animal();
         ~Animal();
 
     virtual void makeSound();
+    std::string getType();
+
 };
 
 
-#endif  
+#endif
