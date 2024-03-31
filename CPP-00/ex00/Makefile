@@ -4,7 +4,7 @@ SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
