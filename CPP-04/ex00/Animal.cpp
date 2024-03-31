@@ -3,7 +3,7 @@
 Animal::Animal()
 {
     std::cout << "Called Animal constructor" << std::endl;
-    this->type = "Default";
+    type = "Default";
 }
 
 Animal::Animal(const Animal &copy)
@@ -20,16 +20,16 @@ Animal::~Animal()
 Animal& Animal::operator=(const Animal& src)
 {
     std::cout << "Called Animal assignation operator" << std::endl;
-    this->type = src.type;
+    type = src.type;
     return (*this);
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
     std::cout << "*ANIMAL NOISES*" << std::endl;
 }
 
-std::string Animal::getType()
+std::string Animal::getType() const
 {
     return (this->type);
 }
