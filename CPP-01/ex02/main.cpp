@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 int main( void )
 {
@@ -7,11 +6,11 @@ int main( void )
 	string *ptr = &str;
 	string &ref = str;
 
-	cout << "Memory Adress string:    " << &str << endl;
-	cout << "Memory Adress pointer:   " << &ptr << endl;
-	cout << "Memory Adress reference: " << &ref << endl;
+	std::cout << "Memory Adress string:    " << &str << std::endl;
+	std::cout << "Memory Adress pointer:   " << &ptr << std::endl;
+	std::cout << "Memory Adress reference: " << &ref << std::endl;
 
-    cout << "Value of string:         " << str << endl;      
-	cout << "Value of pointer:        " << *ptr << endl;
-	cout << "Value of reference:      " << ref << endl;
+    std::cout << "Value of string:         " << str << std::endl;      
+	std::cout << "Value of pointer:        " << *ptr << std::endl;
+	std::cout << "Value of reference:      " << ref << std::endl;
 }

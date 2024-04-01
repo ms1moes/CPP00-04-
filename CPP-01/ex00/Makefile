@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = zombie
 
 SRC = main.cpp \
 	  newZombie.cpp \
@@ -8,7 +8,7 @@ SRC = main.cpp \
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 

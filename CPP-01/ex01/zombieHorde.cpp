@@ -1,12 +1,12 @@
 #include "Zombie.hpp"
 
-Zombie* zombieHorde( int N, string name )
+Zombie* zombieHorde( int N, std::string name )
 {
     Zombie *horde;
 
     if (N < 1)
     {
-        cout << "you cant create 0 or less zombies !" << endl;
+        std::cout << "you cant create 0 or less zombies !" << std::endl;
         return 0;
     }
     horde = new Zombie[N];

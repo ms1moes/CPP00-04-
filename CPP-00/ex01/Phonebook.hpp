@@ -15,6 +15,7 @@ class Phonebook
         void add(void);
         void search(void);
         void print(Contact contact);
+        bool isNumeric(const std::string& str);
 
                 /* getter */
         Contact get_contact(int index);

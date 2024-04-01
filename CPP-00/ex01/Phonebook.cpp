@@ -15,6 +15,16 @@ Contact Phonebook::get_contact(int index)
     return contacts[index % 8];
 }
 
+bool isNumeric(const std::string& str)
+{
+    size_t i = -1;
+
+    while (++i < str.size())
+        if (str[i] < '0' || str[i] > '9')
+            return false;
+    return true;
+}
+
 void Phonebook::add(void)
 {
     std::string str = "";
@@ -41,11 +51,19 @@ void Phonebook::add(void)
             contacts[index % 8].set_nickname(str);
     }
     str = "";
-    while(!std::cin.eof() && str == "")
+    while (!std::cin.eof() && str == "")
     {
         std::cout << "Enter phone number: ";
-        if(getline(std::cin, str) && str != "")
-            contacts[index % 8].set_phone_number(str);
+        if (getline(std::cin, str) && str != "")
+        {
+            if (isNumeric(str))
+                contacts[index % 8].set_phone_number(str);
+            else
+            {
+                std::cout << "Invalid phone number! (only numbers)" << std::endl;
+                str = "";
+            }
+        }
     }
     str = "";
     while(!std::cin.eof() && str == "")

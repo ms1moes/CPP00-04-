@@ -6,15 +6,15 @@ Zombie::Zombie()
 
 Zombie::~Zombie()
 {
-    cout << name << " died" << endl;
+    std::cout << name << " died" << std::endl;
 }
 
 void Zombie::announce()
 {
-    cout << name << ": BraiiiiiiinnnzzzZ..." << endl;
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::set_name(string name)
+void Zombie::set_name(std::string name)
 {
     this->name = name;
 }
