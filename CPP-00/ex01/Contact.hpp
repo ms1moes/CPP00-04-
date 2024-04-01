@@ -2,7 +2,6 @@
 # define CONTACT_H
 
 #include <iostream>
-#include <string.h>
 #include <cstdlib>
 #include <iomanip>
 

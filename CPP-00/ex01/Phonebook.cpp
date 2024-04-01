@@ -138,4 +138,3 @@ void	Phonebook::search(void)
 	if (!std::cin.eof())
 		print(contacts[str[0] - 1 - '0']);
 }
-
