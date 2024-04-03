@@ -15,7 +15,7 @@ Contact Phonebook::get_contact(int index)
     return contacts[index % 8];
 }
 
-bool isNumeric(const std::string& str)
+bool Phonebook::isNumeric(const std::string& str)
 {
     size_t i = -1;
 
