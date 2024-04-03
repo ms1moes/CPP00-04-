@@ -15,12 +15,48 @@ Contact Phonebook::get_contact(int index)
     return contacts[index % 8];
 }
 
-bool Phonebook::isNumeric(const std::string& str)
+void Phonebook::trim(std::string& str)
+{
+    // Remove spaces before the first character
+    size_t startpos = str.find_first_not_of(" ");
+    if (startpos != std::string::npos)
+        str.erase(0, startpos);
+
+    // Remove spaces after the last character
+    size_t endpos = str.find_last_not_of(" ");
+    if (endpos != std::string::npos)
+        str.erase(endpos + 1);
+}
+
+bool Phonebook::numberChecker(const std::string& str)
 {
     size_t i = -1;
 
     while (++i < str.size())
-        if (str[i] < '0' || str[i] > '9')
+        if (!std::isdigit(str[i]))
+            return false;
+    return true;
+}
+
+bool Phonebook::textChecker(std::string& str)
+{
+    size_t i = -1;
+    int only_spaces = 0;
+
+    while (++i < str.size())
+    {
+        if (std::isalpha(str[i]))
+        {
+            only_spaces = 1;
+            break;
+        }
+    }
+    if (!only_spaces)
+        return false;
+    trim(str);
+    i = -1;
+    while (++i < str.size())
+        if (!(std::isalpha(str[i])) && str[i] != ' ')
             return false;
     return true;
 }
@@ -34,21 +70,45 @@ void Phonebook::add(void)
     {
         std::cout << "Enter first name: ";
         if(getline(std::cin, str) && str != "")
-            contacts[index % 8].set_first_name(str);
+        {
+            if(textChecker(str))
+                contacts[index % 8].set_first_name(str);
+            else
+            {
+                std::cout << "invalid text!" << std::endl;
+                str = "";
+            }
+        }
     }
     str = "";
     while(!std::cin.eof() && str == "")
     {
         std::cout << "Enter last name: ";
         if(getline(std::cin, str) && str != "")
-            contacts[index % 8].set_last_name(str);
+        {
+            if(textChecker(str))
+                contacts[index % 8].set_last_name(str);
+            else
+            {
+                std::cout << "invalid text!" << std::endl;
+                str = "";
+            }
+        }
     }
     str = "";
     while(!std::cin.eof() && str == "")
     {
         std::cout << "Enter nickname: ";
-        if(getline(std::cin, str) && str != "")
-            contacts[index % 8].set_nickname(str);
+       if(getline(std::cin, str) && str != "")
+        {
+            if(textChecker(str))
+                contacts[index % 8].set_nickname(str);
+            else
+            {
+                std::cout << "invalid text!" << std::endl;
+                str = "";
+            }
+        }
     }
     str = "";
     while (!std::cin.eof() && str == "")
@@ -56,11 +116,11 @@ void Phonebook::add(void)
         std::cout << "Enter phone number: ";
         if (getline(std::cin, str) && str != "")
         {
-            if (isNumeric(str))
+            if (numberChecker(str))
                 contacts[index % 8].set_phone_number(str);
             else
             {
-                std::cout << "Invalid phone number! (only numbers)" << std::endl;
+                std::cout << "invalid phone number!" << std::endl;
                 str = "";
             }
         }
@@ -71,9 +131,17 @@ void Phonebook::add(void)
         std::cout << "Enter darkest secret: ";
         if(getline(std::cin, str) && str != "")
         {
-            contacts[index % 8].set_darkest_secret(str);
-            system("clear");
-            std::cout << "Contact successfully added" << std::endl;
+            if(textChecker(str))
+            {
+                contacts[index % 8].set_darkest_secret(str);
+                system("clear");
+                std::cout << "Contact successfully added" << std::endl;
+            }
+            else
+            {
+                std::cout << "invalid text!" << std::endl;
+                str = "";
+            }
         }
     }
     index++;
@@ -94,7 +162,7 @@ std::string	adjust_width(std::string str, unsigned long max_size)
 {
 	if (str.size() < max_size)
         return (str);
-	str.resize(max_size);
+	str.resize(max_size - 1);
 	str[str.size() - 1] = '.';
     return (str);
 }
@@ -119,11 +187,11 @@ int display_interface(Contact contacts[8])
         {
             str = index;
             std::cout << "|" << std::setw(10) << str;
-            str = adjust_width(contacts[i].get_first_name(), 10);
+            str = adjust_width(contacts[i].get_first_name(), 11);
             std::cout << "|" << std::setw(10) << str;
-            str = adjust_width(contacts[i].get_last_name(), 10);
+            str = adjust_width(contacts[i].get_last_name(), 11);
             std::cout << "|" << std::setw(10) << str;
-            str = adjust_width(contacts[i].get_nickname(), 10);
+            str = adjust_width(contacts[i].get_nickname(), 11);
             std::cout << "|" << std::setw(10) << str;
             std::cout << "|" << std::endl;
             flag = 1;

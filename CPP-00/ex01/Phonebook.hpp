@@ -15,7 +15,11 @@ class Phonebook
         void add(void);
         void search(void);
         void print(Contact contact);
-        bool isNumeric(const std::string& str);
+
+        void trim(std::string& str);
+        bool numberChecker(const std::string& str);
+        bool textChecker(std::string& str);
+        
 
                 /* getter */
         Contact get_contact(int index);
