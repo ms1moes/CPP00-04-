@@ -7,7 +7,7 @@ int main( void )
 	string &ref = str;
 
 	std::cout << "Memory Adress string:    " << &str << std::endl;
-	std::cout << "Memory Adress pointer:   " << &ptr << std::endl;
+	std::cout << "Memory Adress pointer:   " << ptr << std::endl;
 	std::cout << "Memory Adress reference: " << &ref << std::endl;
 
     std::cout << "Value of string:         " << str << std::endl;      

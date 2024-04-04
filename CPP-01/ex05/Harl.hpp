@@ -15,4 +15,3 @@ class Harl
 		int		levelFinder (const std::string& level);
 		void	complain ( std::string level );
 };
-
