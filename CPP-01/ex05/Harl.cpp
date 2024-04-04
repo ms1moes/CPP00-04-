@@ -36,7 +36,7 @@ int Harl::levelFinder(const std::string& level)
 	while(++i < 4)
 		if (levels[i] == level)
 			return (i);
-	return (i + 1);
+	return (i);
 }
 
 void Harl::complain(std::string level)
