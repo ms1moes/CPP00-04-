@@ -30,7 +30,7 @@ void Harl::error()
 
 void Harl::complain(std::string level)
 {
-    void (Harl::*functions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    void (Harl::*functions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};  //dar add a um default que diz que deu erro na pos 0, fazer o i ir da direita para a esquerda enquanto e positivo para nao usar o if
 
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     size_t i = 0;
