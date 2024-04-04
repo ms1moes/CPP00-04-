@@ -28,15 +28,38 @@ void Harl::error()
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+int Harl::levelFinder(const std::string& level)
+{
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int i = -1;
+
+	while(++i < 4)
+		if (levels[i] == level)
+			return (i);
+	return (i + 1);
+}
+
 void Harl::complain(std::string level)
 {
-    void (Harl::*functions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};  //dar add a um default que diz que deu erro na pos 0, fazer o i ir da direita para a esquerda enquanto e positivo para nao usar o if
+    void (Harl::*functions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    int choice = levelFinder(level);
 
-    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    size_t i = 0;
-
-    while (i < 4 && levels[i] != level)
-        ++i;
-    if (i < 4)
-        (this->*functions[i])();
+    switch (choice)
+    {
+        case 0:
+            (this->*functions[0])();
+            break;
+        case 1:
+            (this->*functions[1])();
+            break;
+        case 2:
+            (this->*functions[2])();
+            break;
+        case 3:
+            (this->*functions[3])();
+            break;
+        default:
+            std::cout << "unknown complaint" << std::endl;
+	        break;
+    }
 }

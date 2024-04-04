@@ -9,3 +9,4 @@ int main( int ac, char **av )
 		return 0;
 	harl.complain(av[1]);
 }
+
