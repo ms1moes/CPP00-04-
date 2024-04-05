@@ -3,21 +3,20 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Zombie
 {
     private:
-        string name;
+        std::string name;
 
     public:
         Zombie();
         ~Zombie();
 
         void    announce( void );
-        void    set_name( string name );
+        void    set_name( std::string name );
 };
 
-Zombie* zombieHorde( int N, string name );
+Zombie* zombieHorde( int N, std::string name );
 
 # endif
