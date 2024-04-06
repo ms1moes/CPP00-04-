@@ -31,7 +31,7 @@ Fixed::~Fixed(void)
 Fixed& Fixed::operator = (const Fixed& src)
 {
 	//std::cout << "Copy assignment operator called" << std::endl;
-    this->fixedPoint = src.getRawBits();
+   fixedPoint = src.getRawBits();
     
     return *this;
 }
@@ -43,7 +43,7 @@ int Fixed::getRawBits(void)const
 
 void Fixed::setRawBits(int const raw)
 {
-    this->fixedPoint = raw;
+   fixedPoint = raw;
 }
 
 int		Fixed::toInt(void)const
@@ -66,7 +66,7 @@ Fixed Fixed::operator + (const Fixed& src)
 {
     Fixed result;
 
-    result.setRawBits(this->fixedPoint + src.getRawBits());
+    result.setRawBits(fixedPoint + src.getRawBits());
     result.toFloat();
     return (result);
 }
@@ -75,7 +75,7 @@ Fixed Fixed::operator - (const Fixed& src)
 {
     Fixed result;
 
-    result.setRawBits(this->fixedPoint - src.getRawBits());
+    result.setRawBits(fixedPoint - src.getRawBits());
     result.toFloat();
     return (result);
 }
@@ -84,7 +84,7 @@ Fixed Fixed::operator * (const Fixed& src)
 {
     Fixed result;
 
-    result.setRawBits((this->fixedPoint * src.getRawBits()) >> fractionalBits);
+    result.setRawBits((fixedPoint * src.getRawBits()) >> fractionalBits);
     result.toFloat();
     return (result);
 }
@@ -93,65 +93,65 @@ Fixed Fixed::operator / (const Fixed& src)
 {
     Fixed result;
 
-    result.setRawBits((this->fixedPoint << fractionalBits) / src.getRawBits());
+    result.setRawBits((fixedPoint << fractionalBits) / src.getRawBits());
     result.toFloat();
     return (result);
 }
 
 Fixed& Fixed::operator ++ (void)
 {
-    this->fixedPoint++;
+   fixedPoint++;
     return (*this);
 }
 
 Fixed Fixed::operator ++ (int)
 {
     Fixed temp(*this);
-    this->fixedPoint++;
+    fixedPoint++;
     return (temp);
 }
 
 Fixed& Fixed::operator -- (void)
 {
-    this->fixedPoint--;
+   fixedPoint--;
     return (*this);
 }
 
 Fixed Fixed::operator -- (int)
 {
     Fixed temp(*this);
-    this->fixedPoint--;
+   fixedPoint--;
     return (temp);
 }
 
 bool Fixed::operator > (const Fixed& src)
 {
-    return (this->fixedPoint > src.getRawBits());
+    return (fixedPoint > src.getRawBits());
 }
 
 bool Fixed::operator < (const Fixed& src)
 {
-    return (this->fixedPoint < src.getRawBits());
+    return (fixedPoint < src.getRawBits());
 }
 
 bool Fixed::operator >= (const Fixed& src)
 {
-    return (this->fixedPoint >= src.getRawBits());
+    return (fixedPoint >= src.getRawBits());
 }
 
 bool Fixed::operator <= (const Fixed& src)
 {
-    return (this->fixedPoint <= src.getRawBits());
+    return (fixedPoint <= src.getRawBits());
 }
 
 bool Fixed::operator == (const Fixed& src)
 {
-    return (this->fixedPoint == src.getRawBits());
+    return (fixedPoint == src.getRawBits());
 }
 
 bool Fixed::operator != (const Fixed& src)
 {
-    return (this->fixedPoint != src.getRawBits());
+    return (fixedPoint != src.getRawBits());
 }
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)

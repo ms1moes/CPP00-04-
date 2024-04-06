@@ -31,7 +31,7 @@ Fixed::~Fixed(void)
 Fixed& Fixed::operator = (const Fixed& src)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-    this->fixedPoint = src.getRawBits();
+    fixedPoint = src.getRawBits();
     
     return *this;
 }
@@ -43,7 +43,7 @@ int Fixed::getRawBits(void)const
 
 void Fixed::setRawBits(int const raw)
 {
-    this->fixedPoint = raw;
+    fixedPoint = raw;
 }
 
 int		Fixed::toInt(void)const
