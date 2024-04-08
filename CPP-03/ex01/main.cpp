@@ -2,17 +2,23 @@
 
 int main ( void )
 {
-    ScavTrap scavtrap1("broken trap");
-    ScavTrap scavtrap2("good trap");
-    ScavTrap scavtrap3;
+    ScavTrap scavtrap;
+	ScavTrap scavtrap1("trap1");
+    ScavTrap scavtrap2("trap2");
 
-    scavtrap1 = scavtrap3;
+    scavtrap2 = scavtrap;
 
+    //testing new attributes values
     scavtrap1.attack("dummy_trap");
     scavtrap1.guardGate();
-    scavtrap2.takeDamage(10);
-    scavtrap1.beRepaired(10);
-    scavtrap2.beRepaired(10);
+
+    scavtrap2.takeDamage(50);
+    scavtrap2.takeDamage(50);
+    scavtrap2.beRepaired(20);
     scavtrap2.attack("dummy_trap");
-	
+
+    scavtrap.takeDamage(90);
+    scavtrap.beRepaired(300);
+    scavtrap.beRepaired(90);
+    scavtrap.beRepaired(1);
 }

@@ -2,16 +2,15 @@
 
 int main ( void )
 {
-    FragTrap fragtrap1("broken trap");
-    FragTrap fragtrap2("good trap");
-    FragTrap fragtrap3;
+    FragTrap fragtrap;
 
-    fragtrap1 = fragtrap3;
+    for (int i = 0; i < 100; i++)
+        fragtrap.attack("enemy");
 
-    fragtrap1.attack("dummy_trap");
-    fragtrap1.highFivesGuys();
-    fragtrap2.takeDamage(10);
-    fragtrap1.beRepaired(10);
-    fragtrap2.beRepaired(10);
-    fragtrap2.attack("dummy_trap");
+    fragtrap.takeDamage(40);
+    fragtrap.takeDamage(10);
+    fragtrap.beRepaired(20);
+    fragtrap.attack("enemy");
+    fragtrap.highFivesGuys();
+    
 }
