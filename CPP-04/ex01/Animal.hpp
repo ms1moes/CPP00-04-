@@ -19,5 +19,4 @@ class Animal
 
 };
 
-
 #endif

@@ -8,8 +8,8 @@ class Animal
 {
     protected:
         std::string type;
-    public:
         Animal();
+    public:
         Animal(const Animal &copy);
         Animal& operator=(const Animal& src);
         virtual ~Animal();
@@ -18,6 +18,5 @@ class Animal
     std::string getType() const;
 
 };
-
 
 #endif
