@@ -12,7 +12,7 @@ class Cat : public Animal
         Cat();
         Cat(const Cat& copy);
         Cat& operator=(const Cat& src);
-        ~Cat();
+        virtual ~Cat();
 
         void makeSound() const;
 };

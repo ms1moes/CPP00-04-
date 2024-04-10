@@ -13,7 +13,7 @@ class Brain
         Brain(const std::string &idea);
         Brain(const Brain &copy);
         Brain& operator=(const Brain& src);
-        ~Brain();
+        virtual ~Brain();
 };
 
 #endif
